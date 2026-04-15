@@ -1,12 +1,55 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+  const loadTimeRef = useRef(Date.now());
 
-  function handleSubmit(e: React.FormEvent) {
+  useEffect(() => {
+    loadTimeRef.current = Date.now();
+  }, []);
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setError("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    // Honeypot check — bots auto-fill this hidden field
+    if (formData.get("website")) {
+      // Silently "succeed" so bots think it worked
+      setSubmitted(true);
+      return;
+    }
+
+    // Time-based check — reject submissions faster than 3 seconds
+    const elapsed = Date.now() - loadTimeRef.current;
+    if (elapsed < 3000) {
+      setSubmitted(true);
+      return;
+    }
+
+    // Basic client-side validation
+    const name = (formData.get("name") as string)?.trim();
+    const email = (formData.get("email") as string)?.trim();
+    const message = (formData.get("message") as string)?.trim();
+
+    if (!name || !email || !message) {
+      setError("Please fill out all required fields.");
+      return;
+    }
+
+    // Check for spammy patterns in message
+    const urlPattern = /https?:\/\/[^\s]+/gi;
+    const urlMatches = message.match(urlPattern);
+    if (urlMatches && urlMatches.length > 2) {
+      setError("Your message was flagged as spam. Please remove excessive links and try again.");
+      return;
+    }
+
     setSubmitted(true);
   }
 
@@ -25,6 +68,18 @@ export default function ContactForm() {
 
   return (
     <form className="space-y-6" onSubmit={handleSubmit}>
+      {/* Honeypot — hidden from real users, bots will fill it */}
+      <div className="absolute opacity-0 h-0 w-0 overflow-hidden" aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input
+          type="text"
+          id="website"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
           <label
@@ -105,6 +160,13 @@ export default function ContactForm() {
           placeholder="Tell us about your dock project — type of dock, lake name, any special requirements..."
         />
       </div>
+
+      {error && (
+        <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-red-700 text-sm">
+          {error}
+        </div>
+      )}
+
       <button
         type="submit"
         className="w-full sm:w-auto bg-lake text-white font-semibold px-8 py-3 rounded-lg hover:bg-lake-dark transition-colors"
@@ -112,7 +174,7 @@ export default function ContactForm() {
         Send Message
       </button>
       <p className="text-sm text-gray-500">
-        We&apos;ll get back to you within 24 hours during the season (March–November).
+        We&apos;ll get back to you within 24 hours during the season (March&ndash;November).
       </p>
     </form>
   );
