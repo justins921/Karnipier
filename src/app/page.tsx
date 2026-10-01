@@ -262,6 +262,36 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Brands We Carry */}
+      <section className="py-12 bg-white border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl font-bold text-navy-900 mb-2">Brands We Carry</h2>
+          <p className="text-gray-600 mb-6">
+            Along with our own Karni-Pier docks, we offer products from these trusted brands.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {[
+              {
+                name: "ShoreStation Boat Lifts",
+                href: "https://www.shorestation.com/free-standing-boat-lifts/boat-lifts/",
+              },
+              { name: "D&H Docks", href: "https://dhdocks.com/" },
+            ].map((brand) => (
+              <a
+                key={brand.name}
+                href={brand.href}
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center justify-center gap-2 border-2 border-navy-100 rounded-lg px-6 py-4 font-semibold text-navy-900 hover:border-lake hover:text-lake transition-colors"
+              >
+                {brand.name}
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Gallery Preview */}
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

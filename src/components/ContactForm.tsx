@@ -2,55 +2,50 @@
 
 import { useState, useRef, useEffect } from "react";
 
+const MAX_FILES = 5;
+const MAX_TOTAL_BYTES = 4 * 1024 * 1024;
+
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
-  const loadTimeRef = useRef(Date.now());
+  const startedAtRef = useRef(0);
 
   useEffect(() => {
-    loadTimeRef.current = Date.now();
+    startedAtRef.current = Date.now();
   }, []);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
 
-    const form = e.currentTarget;
-    const formData = new FormData(form);
+    const formData = new FormData(e.currentTarget);
+    formData.set("startedAt", String(startedAtRef.current));
 
-    // Honeypot check — bots auto-fill this hidden field
-    if (formData.get("website")) {
-      // Silently "succeed" so bots think it worked
+    const files = formData.getAll("files").filter((f): f is File => f instanceof File && f.size > 0);
+    if (files.length > MAX_FILES) {
+      setError(`Please attach ${MAX_FILES} photos or fewer.`);
+      return;
+    }
+    if (files.reduce((sum, f) => sum + f.size, 0) > MAX_TOTAL_BYTES) {
+      setError("Attachments are too large (4 MB total max). Try fewer or smaller photos.");
+      return;
+    }
+
+    setSending(true);
+    try {
+      const res = await fetch("/api/contact", { method: "POST", body: formData });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setError(body.error || "Oops! Something went wrong while submitting the form.");
+        return;
+      }
       setSubmitted(true);
-      return;
+    } catch {
+      setError("Oops! Something went wrong while submitting the form. Please call (920) 231-0841.");
+    } finally {
+      setSending(false);
     }
-
-    // Time-based check — reject submissions faster than 3 seconds
-    const elapsed = Date.now() - loadTimeRef.current;
-    if (elapsed < 3000) {
-      setSubmitted(true);
-      return;
-    }
-
-    // Basic client-side validation
-    const name = (formData.get("name") as string)?.trim();
-    const email = (formData.get("email") as string)?.trim();
-    const message = (formData.get("message") as string)?.trim();
-
-    if (!name || !email || !message) {
-      setError("Please fill out all required fields.");
-      return;
-    }
-
-    // Check for spammy patterns in message
-    const urlPattern = /https?:\/\/[^\s]+/gi;
-    const urlMatches = message.match(urlPattern);
-    if (urlMatches && urlMatches.length > 2) {
-      setError("Your message was flagged as spam. Please remove excessive links and try again.");
-      return;
-    }
-
-    setSubmitted(true);
   }
 
   if (submitted) {
@@ -60,7 +55,7 @@ export default function ContactForm() {
           Thank you! Your submission has been received!
         </h3>
         <p className="text-green-700">
-          We&apos;ll get back to you as soon as possible.
+          We will get back to you within 48 hours.
         </p>
       </div>
     );
@@ -102,12 +97,13 @@ export default function ContactForm() {
             htmlFor="phone"
             className="block text-sm font-medium text-navy-800 mb-2"
           >
-            Phone Number
+            Phone Number <span className="text-red-500">*</span>
           </label>
           <input
             type="tel"
             id="phone"
             name="phone"
+            required
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lake focus:border-transparent outline-none transition-shadow"
             placeholder="(xxx) xxx-xxxx"
           />
@@ -134,12 +130,13 @@ export default function ContactForm() {
           htmlFor="address"
           className="block text-sm font-medium text-navy-800 mb-2"
         >
-          Address
+          Address <span className="text-red-500">*</span>
         </label>
         <input
           type="text"
           id="address"
           name="address"
+          required
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lake focus:border-transparent outline-none transition-shadow"
           placeholder="Your lake property address"
         />
@@ -161,6 +158,24 @@ export default function ContactForm() {
         />
       </div>
 
+      <div>
+        <label
+          htmlFor="files"
+          className="block text-sm font-medium text-navy-800 mb-2"
+        >
+          Photos <span className="text-gray-500 font-normal">(optional &mdash; your shoreline, old dock, etc.)</span>
+        </label>
+        <input
+          type="file"
+          id="files"
+          name="files"
+          multiple
+          accept="image/*,application/pdf"
+          className="block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-navy-50 file:text-navy-800 file:font-medium hover:file:bg-navy-100"
+        />
+        <p className="text-xs text-gray-500 mt-1">Up to 5 files, 4 MB total.</p>
+      </div>
+
       {error && (
         <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-red-700 text-sm">
           {error}
@@ -169,12 +184,13 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="w-full sm:w-auto bg-lake text-white font-semibold px-8 py-3 rounded-lg hover:bg-lake-dark transition-colors"
+        disabled={sending}
+        className="w-full sm:w-auto bg-lake text-white font-semibold px-8 py-3 rounded-lg hover:bg-lake-dark transition-colors disabled:opacity-60 disabled:cursor-wait"
       >
-        Send Message
+        {sending ? "Sending..." : "Send Message"}
       </button>
       <p className="text-sm text-gray-500">
-        We&apos;ll get back to you within 24 hours during the season (March&ndash;November).
+        We will get back to you within 48 hours.
       </p>
     </form>
   );

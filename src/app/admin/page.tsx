@@ -1,28 +1,35 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { login, isAuthenticated } from "@/lib/auth";
 
 export default function AdminLoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  useEffect(() => {
-    if (isAuthenticated()) {
-      router.replace("/admin/classifieds");
-    }
-  }, [router]);
-
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
-    if (login(password)) {
-      router.push("/admin/classifieds");
-    } else {
+    setLoading(true);
+    try {
+      const res = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password }),
+      });
+      if (res.ok) {
+        router.push("/admin/classifieds");
+        router.refresh();
+        return;
+      }
       setError("Invalid password. Please try again.");
       setPassword("");
+    } catch {
+      setError("Could not reach the server. Please try again.");
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -65,9 +72,10 @@ export default function AdminLoginPage() {
 
             <button
               type="submit"
-              className="w-full bg-lake text-white font-semibold px-6 py-3 rounded-lg hover:bg-lake-dark transition-colors"
+              disabled={loading}
+              className="w-full bg-lake text-white font-semibold px-6 py-3 rounded-lg hover:bg-lake-dark transition-colors disabled:opacity-60"
             >
-              Sign In
+              {loading ? "Signing in..." : "Sign In"}
             </button>
           </form>
         </div>

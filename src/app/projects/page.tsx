@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import ProjectGallery from "@/components/ProjectGallery";
 
 export const metadata: Metadata = {
   title: "Projects — Dock Installation Gallery",
@@ -109,6 +109,10 @@ const projectImages = [
     src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f487ef28057_WEEKS-INSTALLED-2%20(1).jpeg",
     alt: "Weeks dock installation completed by Piers 2U",
   },
+  {
+    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f0d9af28070_karni-pier-for-sale.jpeg",
+    alt: "Karni-Pier dock sections",
+  },
 ];
 
 export default function ProjectsPage() {
@@ -129,20 +133,7 @@ export default function ProjectsPage() {
       {/* Gallery Grid */}
       <section className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projectImages.map((img, index) => (
-              <div key={index} className="overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  width={600}
-                  height={400}
-                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-                  loading={index < 6 ? "eager" : "lazy"}
-                />
-              </div>
-            ))}
-          </div>
+          <ProjectGallery images={projectImages} />
         </div>
       </section>
 

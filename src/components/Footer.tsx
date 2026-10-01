@@ -108,6 +108,17 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-navy-800 mt-10 pt-6 text-center text-sm text-gray-500">
           <p>&copy; {new Date().getFullYear()} Karni-Pier LLC dba Piers 2U! All rights reserved.</p>
+          <p className="mt-2">
+            Designed by{" "}
+            <a
+              href="https://sobojinskisolutions.com"
+              target="_blank"
+              rel="noopener"
+              className="hover:text-white transition-colors"
+            >
+              Sobojinski Solutions LLC
+            </a>
+          </p>
         </div>
       </div>
     </footer>

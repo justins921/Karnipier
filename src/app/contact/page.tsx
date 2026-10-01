@@ -16,7 +16,7 @@ export default function ContactPage() {
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">Get In Touch</h1>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto">
             Ready to start your dock project? Fill out the form below or give us a call.
-            We&apos;d love to hear from you.
+            We will get back to you within 48 hours.
           </p>
         </div>
       </section>
@@ -45,7 +45,7 @@ export default function ContactPage() {
                     (920) 231-0841
                   </a>
                   <p className="text-gray-600 text-sm mt-2">
-                    Open 24/7 March through November, by appointment only off-season.
+                    Open 24/7 March through November, by appointment only.
                   </p>
                 </div>
 

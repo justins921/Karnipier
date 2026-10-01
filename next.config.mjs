@@ -7,6 +7,12 @@ const nextConfig = {
         hostname: "cdn.prod.website-files.com",
         pathname: "/**",
       },
+      {
+        // Classifieds photos uploaded through /admin
+        protocol: "https",
+        hostname: "*.public.blob.vercel-storage.com",
+        pathname: "/**",
+      },
     ],
   },
   staticPageGenerationTimeout: 120,

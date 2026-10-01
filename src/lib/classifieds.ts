@@ -1,146 +1,138 @@
+// Shared classifieds types and seed data. Safe to import from client or server.
+
+export type ListingStatus = "available" | "sold";
+
 export interface ClassifiedListing {
   id: string;
   title: string;
   description: string;
+  /** Short price/status line, e.g. "Call for quote" or "$2,850". */
   price: string;
-  badge: "New" | "Sale" | "Used" | "Used — Like New";
-  sold: boolean;
+  status: ListingStatus;
+  /** Public image URL (Vercel Blob in production, /uploads/... in local dev). */
+  imageUrl: string;
+  /** Lower numbers show first. */
+  sortOrder: number;
   createdAt: string;
   updatedAt: string;
 }
 
-const STORAGE_KEY = "piers2u_classifieds";
+export type ListingInput = Pick<
+  ClassifiedListing,
+  "title" | "description" | "price" | "status" | "imageUrl"
+>;
 
-const defaultListings: ClassifiedListing[] = [
+const SEED_DATE = "2025-12-16T00:00:00.000Z";
+
+// Mirrors the live pierstoyou.com/classifieds page as of Dec 2025.
+// Used the first time the store is read, before Scott has saved anything.
+const seed: Array<Omit<ClassifiedListing, "id" | "sortOrder" | "createdAt" | "updatedAt">> = [
   {
-    id: "1",
-    title: "New Vinyl Karni Sections",
-    description: "Great to use to upgrade that old wood pier! No legs — just sections.",
-    price: "$500 each",
-    badge: "New",
-    sold: false,
-    createdAt: "2025-01-01T00:00:00.000Z",
-    updatedAt: "2025-01-01T00:00:00.000Z",
+    title: "New vinyl Karni sections to convert old wood pier",
+    description: "Great to use to upgrade that old wood pier! No legs - Just sections",
+    price: "Call for quote",
+    status: "available",
+    imageUrl: "",
   },
   {
-    id: "2",
-    title: "2025 New Dock Sale",
+    title: "Used dock, ladder and bench in great shape",
+    description: "No longer available",
+    price: "SOLD",
+    status: "sold",
+    imageUrl:
+      "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f1a59f280cd_Website%20Photo%20copy%202%20smaller.jpg",
+  },
+  {
+    title: "2025 NEW DOCK SALE!!!!!",
     description: "Call for details and deals! SPECIAL now!! 25% OFF NEW DOCKS!!!",
-    price: "Call for Quote",
-    badge: "Sale",
-    sold: false,
-    createdAt: "2025-01-01T00:00:00.000Z",
-    updatedAt: "2025-01-01T00:00:00.000Z",
+    price: "Call for quote",
+    status: "available",
+    imageUrl: "",
   },
   {
-    id: "3",
-    title: "Two Used/Like New 10-Section Complete Vinyl Karni-Piers",
-    description: "FREE LOCAL DELIVERY AND INSTALL. Complete vinyl Karni-Pier systems in excellent condition.",
-    price: "$7,500 each (Originally $12,500)",
-    badge: "Used — Like New",
-    sold: false,
-    createdAt: "2025-01-01T00:00:00.000Z",
-    updatedAt: "2025-01-01T00:00:00.000Z",
+    title: "USED 3000# Aqua-Matic Vertical Pontoon or V-Hull Lift",
+    description: "No longer available",
+    price: "SOLD",
+    status: "sold",
+    imageUrl: "",
   },
   {
-    id: "4",
-    title: "Used Vinyl Sections for Wood Pier Conversion",
-    description: "All hardware, with legs. Perfect for upgrading your existing wood pier.",
-    price: "$850 per section",
-    badge: "Used",
-    sold: false,
-    createdAt: "2025-01-01T00:00:00.000Z",
-    updatedAt: "2025-01-01T00:00:00.000Z",
+    title: "USED 1000# Hewitt Cantilever Small Watercraft or Jet Ski Lift - New Bunks",
+    description: "No longer available",
+    price: "SOLD",
+    status: "sold",
+    imageUrl: "",
   },
   {
-    id: "5",
-    title: "Used dock, ladder, bench",
-    description: "",
-    price: "",
-    badge: "Used",
-    sold: true,
-    createdAt: "2024-01-01T00:00:00.000Z",
-    updatedAt: "2024-06-01T00:00:00.000Z",
+    title: "2 USED/LIKE NEW 10 section 'COMPLETE' Vinyl KARNI-PIER(S)",
+    description: "FREE LOCAL DELIVERY AND INSTALL",
+    price: "Call for quote",
+    status: "available",
+    imageUrl: "",
   },
   {
-    id: "6",
-    title: "3000# Aqua-Matic pontoon lift",
-    description: "",
-    price: "",
-    badge: "Used",
-    sold: true,
-    createdAt: "2024-01-01T00:00:00.000Z",
-    updatedAt: "2024-06-01T00:00:00.000Z",
+    title:
+      "USED Vinyl Sections to convert that Old Wood KARNI-PIER over to MAINTENANCE FREE LAST FOREVER KARNI-PIER",
+    description: "All hardware with legs",
+    price: "Call for quote",
+    status: "available",
+    imageUrl: "",
   },
   {
-    id: "7",
-    title: "1000# Hewitt cantilever jet ski lift",
-    description: "",
-    price: "",
-    badge: "Used",
-    sold: true,
-    createdAt: "2024-01-01T00:00:00.000Z",
-    updatedAt: "2024-06-01T00:00:00.000Z",
+    title: "NEW 26 X 108 ShoreStation Canopy Frame w/Vinyl New $3850 Sale $2850",
+    description: "No longer available",
+    price: "SOLD",
+    status: "sold",
+    imageUrl: "",
   },
   {
-    id: "8",
-    title: "ShoreStation canopy frame",
-    description: "",
-    price: "",
-    badge: "Used",
-    sold: true,
-    createdAt: "2024-01-01T00:00:00.000Z",
-    updatedAt: "2024-06-01T00:00:00.000Z",
+    title: "LIKE NEW (used 6 mo) 24 x 120 Blue ShoreStation Vinyl",
+    description: "No longer available",
+    price: "SOLD",
+    status: "sold",
+    imageUrl: "",
   },
   {
-    id: "9",
-    title: "ShoreStation vinyl boat cover",
-    description: "",
-    price: "",
-    badge: "Used",
-    sold: true,
-    createdAt: "2024-01-01T00:00:00.000Z",
-    updatedAt: "2024-06-01T00:00:00.000Z",
-  },
-  {
-    id: "10",
-    title: "ShoreStation lift tires/hubs",
-    description: "",
-    price: "",
-    badge: "Used",
-    sold: true,
-    createdAt: "2024-01-01T00:00:00.000Z",
-    updatedAt: "2024-06-01T00:00:00.000Z",
+    title: "1 set of Two ShoreStation Boat Lift Install/Removal Tires and Hubs",
+    description: "No longer available",
+    price: "SOLD",
+    status: "sold",
+    imageUrl: "",
   },
 ];
 
-export function getListings(): ClassifiedListing[] {
-  if (typeof window === "undefined") return defaultListings;
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (!stored) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultListings));
-    return defaultListings;
-  }
-  return JSON.parse(stored);
+export const seedListings: ClassifiedListing[] = seed.map((l, i) => ({
+  ...l,
+  id: `seed-${i + 1}`,
+  sortOrder: i,
+  createdAt: SEED_DATE,
+  updatedAt: SEED_DATE,
+}));
+
+export function sortListings(listings: ClassifiedListing[]): ClassifiedListing[] {
+  return [...listings].sort((a, b) => a.sortOrder - b.sortOrder);
 }
 
-export function saveListing(listing: ClassifiedListing): void {
-  const listings = getListings();
-  const index = listings.findIndex((l) => l.id === listing.id);
-  if (index >= 0) {
-    listings[index] = { ...listing, updatedAt: new Date().toISOString() };
-  } else {
-    listings.push({
-      ...listing,
-      id: crypto.randomUUID(),
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    });
-  }
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(listings));
-}
+/** Validates and normalizes untrusted input from the admin API. */
+export function parseListingInput(body: unknown): ListingInput | string {
+  if (!body || typeof body !== "object") return "Invalid request.";
+  const b = body as Record<string, unknown>;
+  const str = (v: unknown, max: number) =>
+    typeof v === "string" ? v.trim().slice(0, max) : "";
 
-export function deleteListing(id: string): void {
-  const listings = getListings().filter((l) => l.id !== id);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(listings));
+  const title = str(b.title, 200);
+  if (!title) return "Title is required.";
+  const status: ListingStatus = b.status === "sold" ? "sold" : "available";
+  const imageUrl = str(b.imageUrl, 1000);
+  if (imageUrl && !/^(https:\/\/|\/uploads\/)/.test(imageUrl)) {
+    return "Image URL must be an uploaded image.";
+  }
+
+  return {
+    title,
+    description: str(b.description, 2000),
+    price: str(b.price, 100),
+    status,
+    imageUrl,
+  };
 }

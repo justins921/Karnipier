@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import ClassifiedsListings from "@/components/ClassifiedsListings";
+import { getListings } from "@/lib/classifieds-store";
+
+// Rebuilt whenever Scott saves a listing (revalidatePath), and hourly as a fallback.
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Classifieds — Docks & Lifts For Sale",
@@ -9,7 +12,9 @@ export const metadata: Metadata = {
     "Browse docks, dock sections, and boat lifts for sale from Karni-Pier LLC dba Piers 2U in Oshkosh, Wisconsin. New and used equipment available.",
 };
 
-export default function ClassifiedsPage() {
+export default async function ClassifiedsPage() {
+  const listings = await getListings();
+
   return (
     <>
       {/* Hero */}
@@ -17,27 +22,13 @@ export default function ClassifiedsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">Classifieds</h1>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-            Browse new and used docks, dock sections, boat lifts, and accessories.
-            Call or email to inquire about any listing.
+            Call <a href="tel:920-231-0841" className="text-white font-semibold underline">(920) 231-0841</a> or
+            email <a href="mailto:info@karnipier.com" className="text-white font-semibold underline">info@karnipier.com</a> for details.
           </p>
         </div>
       </section>
 
-      {/* Featured Image */}
-      <section className="py-8 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Image
-            src="https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f1a59f280cd_Website%20Photo%20copy%202%20smaller.jpg"
-            alt="Dock equipment available for sale from Piers 2U"
-            width={800}
-            height={500}
-            className="w-full h-auto rounded-lg shadow-md"
-          />
-        </div>
-      </section>
-
-      {/* Dynamic Listings (reads from localStorage when available) */}
-      <ClassifiedsListings />
+      <ClassifiedsListings listings={listings} />
 
       {/* Contact for Listings */}
       <section className="py-12 bg-navy-50">
