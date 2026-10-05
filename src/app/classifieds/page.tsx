@@ -27,7 +27,7 @@ export default function ClassifiedsPage() {
       <section className="py-8 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <Image
-            src="https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f1a59f280cd_Website%20Photo%20copy%202%20smaller.jpg"
+            src="/images/14-62f11fa14e9a1f1a59f280cd_Website-Photo-copy-2-smaller.jpg"
             alt="Dock equipment available for sale from Piers 2U"
             width={800}
             height={500}

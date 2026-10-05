@@ -19,7 +19,7 @@ const dockTypes = [
       "Custom configurations for any shoreline",
       "Built to withstand Wisconsin weather",
     ],
-    image: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1fdc4af280c0_FREMONT-CAMPGROUND-FLOATING-DOCK-2012%20(1).jpeg",
+    image: "/images/17-62f11fa14e9a1fdc4af280c0_FREMONT-CAMPGROUND-FLOATING-DOCK-2012--1-.jpeg",
     imageAlt: "Stationary dock system installed at a Wisconsin campground",
   },
   {
@@ -32,7 +32,7 @@ const dockTypes = [
       "Maintenance-free polymer construction",
       "Ideal for soft or uneven lake bottoms",
     ],
-    image: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f05b8f280c9_MENOMENEE-PARK%20(1).jpeg",
+    image: "/images/00-62f11fa14e9a1f05b8f280c9_MENOMENEE-PARK--1-.jpeg",
     imageAlt: "Floating dock system at Menominee Park Wisconsin",
   },
   {
@@ -45,7 +45,7 @@ const dockTypes = [
       "Maintenance-free polymer decking",
       "Available in multiple section sizes",
     ],
-    image: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f2f38f280c4_MENOMENEE-PARK-4%20(1).jpeg",
+    image: "/images/02-62f11fa14e9a1f2f38f280c4_MENOMENEE-PARK-4--1-.jpeg",
     imageAlt: "Roll-in dock system ready for installation",
   },
   {
@@ -58,7 +58,7 @@ const dockTypes = [
       "Professional installation included",
       "Seasonal install and removal services",
     ],
-    image: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f0d9af28070_karni-pier-for-sale.jpeg",
+    image: "/images/13-62f11fa14e9a1f0d9af28070_karni-pier-for-sale.jpeg",
     imageAlt: "Boat lift installed on Wisconsin lake by Piers 2U",
   },
 ];

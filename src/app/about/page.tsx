@@ -68,7 +68,7 @@ export default function AboutPage() {
             </div>
             <div>
               <Image
-                src="https://cdn.prod.website-files.com/62f11fa14e9a1f17e8f28013/62f11fa14e9a1f8c65f28066_4b-New-Logo-with-KARNI-PIER-LLC-plus-dba-PIERS-2-U-300x178.jpeg"
+                src="/images/07-62f11fa14e9a1f8c65f28066_4b-New-Logo-with-KARNI-PIER-LLC-plus-dba-PIERS-2-U-300x178.jpeg"
                 alt="Karni-Pier LLC dba Piers 2U company logo"
                 width={300}
                 height={178}

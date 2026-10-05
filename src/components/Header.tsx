@@ -24,7 +24,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="https://cdn.prod.website-files.com/62f11fa14e9a1f17e8f28013/62f11fa14e9a1f8c65f28066_4b-New-Logo-with-KARNI-PIER-LLC-plus-dba-PIERS-2-U-300x178.jpeg"
+              src="/images/07-62f11fa14e9a1f8c65f28066_4b-New-Logo-with-KARNI-PIER-LLC-plus-dba-PIERS-2-U-300x178.jpeg"
               alt="Karni-Pier LLC dba Piers 2U - Custom Dock Builder Wisconsin"
               width={180}
               height={107}

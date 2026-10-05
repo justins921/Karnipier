@@ -10,103 +10,103 @@ export const metadata: Metadata = {
 
 const projectImages = [
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f3124f280cc_DEMPSEY-INSTALLED-2%20(1).jpeg",
+    src: "/images/03-62f11fa14e9a1f3124f280cc_DEMPSEY-INSTALLED-2--1-.jpeg",
     alt: "Dempsey dock installation by Piers 2U",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1fe571f280cb_6-28-12-TO-6-30-12-004%20(1).jpeg",
+    src: "/images/18-62f11fa14e9a1fe571f280cb_6-28-12-TO-6-30-12-004--1-.jpeg",
     alt: "Custom dock installation on Wisconsin lake - summer 2012",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1ff0bcf280ca_9-6-12-TO-9-8-12-001%20(1).jpeg",
+    src: "/images/19-62f11fa14e9a1ff0bcf280ca_9-6-12-TO-9-8-12-001--1-.jpeg",
     alt: "Lakefront dock system installed September 2012",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f05b8f280c9_MENOMENEE-PARK%20(1).jpeg",
+    src: "/images/00-62f11fa14e9a1f05b8f280c9_MENOMENEE-PARK--1-.jpeg",
     alt: "Dock installation at Menominee Park Wisconsin",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1fdae8f280c8_ANDRASCO-PREMIER-3%20(1).jpeg",
+    src: "/images/15-62f11fa14e9a1fdae8f280c8_ANDRASCO-PREMIER-3--1-.jpeg",
     alt: "Andrasco premier dock system installation",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f94d0f280c7_otterrdwaupaca7-162012004%20(1).jpeg",
+    src: "/images/12-62f11fa14e9a1f94d0f280c7_otterrdwaupaca7-162012004--1-.jpeg",
     alt: "Dock installation on Otter Road Waupaca Wisconsin",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f0bf3f280c6_otterrdwaupaca7-162012001%20(1).jpeg",
+    src: "/images/01-62f11fa14e9a1f0bf3f280c6_otterrdwaupaca7-162012001--1-.jpeg",
     alt: "Waterfront dock system in Waupaca Wisconsin",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1fdc0cf280c5_TEAL-PREMIER-5%20(1).jpeg",
+    src: "/images/16-62f11fa14e9a1fdc0cf280c5_TEAL-PREMIER-5--1-.jpeg",
     alt: "Teal premier dock system by Piers 2U",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f2f38f280c4_MENOMENEE-PARK-4%20(1).jpeg",
+    src: "/images/02-62f11fa14e9a1f2f38f280c4_MENOMENEE-PARK-4--1-.jpeg",
     alt: "Menominee Park dock installation - wide view",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f5061f280c3_PRE-TODD-BRELAGE%20(1).jpeg",
+    src: "/images/07-62f11fa14e9a1f5061f280c3_PRE-TODD-BRELAGE--1-.jpeg",
     alt: "Todd Brelage dock installation project",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1ffc8ef280c2_OLSEN-INSTALLED%20(1).jpeg",
+    src: "/images/20-62f11fa14e9a1ffc8ef280c2_OLSEN-INSTALLED--1-.jpeg",
     alt: "Olsen dock installation completed by Piers 2U",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f6e38f280c1_7-26-12-TO-7-28-12-015-e1576166081191%20(1).jpeg",
+    src: "/images/08-62f11fa14e9a1f6e38f280c1_7-26-12-TO-7-28-12-015-e1576166081191--1-.jpeg",
     alt: "Lakefront dock project completed July 2012",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1fdc4af280c0_FREMONT-CAMPGROUND-FLOATING-DOCK-2012%20(1).jpeg",
+    src: "/images/17-62f11fa14e9a1fdc4af280c0_FREMONT-CAMPGROUND-FLOATING-DOCK-2012--1-.jpeg",
     alt: "Fremont campground floating dock installation 2012",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1fb165f280bf_DUMKEART-INSTALLED%20(1).jpeg",
+    src: "/images/13-62f11fa14e9a1fb165f280bf_DUMKEART-INSTALLED--1-.jpeg",
     alt: "Dumkeart dock installation on Wisconsin lake",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f8980f280b7_CAPPALLANI.KELLY-NEW-DOCK-7-2012%20(1).jpg",
+    src: "/images/10-62f11fa14e9a1f8980f280b7_CAPPALLANI.KELLY-NEW-DOCK-7-2012--1-.jpg",
     alt: "Cappallani Kelly new dock installation July 2012",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f417af280a6_5-27-11-TO-6-1-11-001-e1576166279941%20(1).jpeg",
+    src: "/images/05-62f11fa14e9a1f417af280a6_5-27-11-TO-6-1-11-001-e1576166279941--1-.jpeg",
     alt: "Dock project completed May-June 2011",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f33f4f28095_otterrdwaupaca7-162012003%20(1).jpeg",
+    src: "/images/04-62f11fa14e9a1f33f4f28095_otterrdwaupaca7-162012003--1-.jpeg",
     alt: "Dock system on Otter Road lake Waupaca",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1fda5ef28083_9-6-12-TO-9-8-12-003%20(1).jpeg",
+    src: "/images/14-62f11fa14e9a1fda5ef28083_9-6-12-TO-9-8-12-003--1-.jpeg",
     alt: "Completed dock installation September 2012",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f7207f28044_my-phone-4-16-13-035%20(1).jpeg",
+    src: "/images/09-62f11fa14e9a1f7207f28044_my-phone-4-16-13-035--1-.jpeg",
     alt: "Dock installation photo April 2013",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f9467f28043_2013-INSTALLED-STORED-005%20(1).jpeg",
+    src: "/images/11-62f11fa14e9a1f9467f28043_2013-INSTALLED-STORED-005--1-.jpeg",
     alt: "Dock installation and storage setup 2013",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f06dff28042_OLSENS-PREMIER-3.jpeg",
+    src: "/images/11-62f11fa14e9a1f06dff28042_OLSENS-PREMIER-3.jpeg",
     alt: "Olsen premier dock system - side view",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f59eef28041_in-out-docks-10-21-13-001.jpeg",
+    src: "/images/21-62f11fa14e9a1f59eef28041_in-out-docks-10-21-13-001.jpeg",
     alt: "Seasonal dock removal service October 2013",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f7e86f28040_OLSENS-PREMIER-5.jpeg",
+    src: "/images/24-62f11fa14e9a1f7e86f28040_OLSENS-PREMIER-5.jpeg",
     alt: "Olsen premier dock system - full view",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f7207f28044_my-phone-4-16-13-035%20(1).jpeg",
+    src: "/images/09-62f11fa14e9a1f7207f28044_my-phone-4-16-13-035--1-.jpeg",
     alt: "Waterfront dock installation Wisconsin spring 2013",
   },
   {
-    src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f487ef28057_WEEKS-INSTALLED-2%20(1).jpeg",
+    src: "/images/06-62f11fa14e9a1f487ef28057_WEEKS-INSTALLED-2--1-.jpeg",
     alt: "Weeks dock installation completed by Piers 2U",
   },
 ];

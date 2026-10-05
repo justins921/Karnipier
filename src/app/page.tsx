@@ -38,7 +38,7 @@ const jsonLd = {
   foundingDate: "1950",
   priceRange: "$$",
   image:
-    "https://cdn.prod.website-files.com/62f11fa14e9a1f17e8f28013/62f11fa14e9a1f8c65f28066_4b-New-Logo-with-KARNI-PIER-LLC-plus-dba-PIERS-2-U-300x178.jpeg",
+    "/images/07-62f11fa14e9a1f8c65f28066_4b-New-Logo-with-KARNI-PIER-LLC-plus-dba-PIERS-2-U-300x178.jpeg",
   sameAs: [],
 };
 
@@ -197,7 +197,7 @@ export default function HomePage() {
             </div>
             <div className="relative">
               <Image
-                src="https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1f3124f280cc_DEMPSEY-INSTALLED-2%20(1).jpeg"
+                src="/images/03-62f11fa14e9a1f3124f280cc_DEMPSEY-INSTALLED-2--1-.jpeg"
                 alt="Custom dock installation by Piers 2U on a Wisconsin lake"
                 width={600}
                 height={400}
@@ -276,15 +276,15 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1fe571f280cb_6-28-12-TO-6-30-12-004%20(1).jpeg",
+                src: "/images/18-62f11fa14e9a1fe571f280cb_6-28-12-TO-6-30-12-004--1-.jpeg",
                 alt: "Custom dock installation on Wisconsin lake",
               },
               {
-                src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1fdae8f280c8_ANDRASCO-PREMIER-3%20(1).jpeg",
+                src: "/images/15-62f11fa14e9a1fdae8f280c8_ANDRASCO-PREMIER-3--1-.jpeg",
                 alt: "Premier dock system installed by Piers 2U",
               },
               {
-                src: "https://cdn.prod.website-files.com/62f11fa14e9a1f9b03f2803b/62f11fa14e9a1fdc0cf280c5_TEAL-PREMIER-5%20(1).jpeg",
+                src: "/images/16-62f11fa14e9a1fdc0cf280c5_TEAL-PREMIER-5--1-.jpeg",
                 alt: "Teal premier dock installed on waterfront property",
               },
             ].map((img) => (

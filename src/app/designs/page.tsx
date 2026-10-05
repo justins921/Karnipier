@@ -13,36 +13,36 @@ const deckingOptions = [
     title: "Option One — Polymeric Decking",
     description:
       "Our flagship maintenance-free polymeric decking in 4' x 10' sections. The premium choice for a dock that looks great year after year with zero upkeep.",
-    image: "https://cdn.prod.website-files.com/62f11fa14e9a1f17e8f28013/62f11fa14e9a1f0816f2807d_Option%20One.png",
+    image: "/images/01-62f11fa14e9a1f0816f2807d_Option-One.png",
     imageAlt: "Option One polymeric decking for Karni-Pier dock",
-    detailImage: "https://cdn.prod.website-files.com/62f11fa14e9a1f17e8f28013/62f11fa14e9a1f5d0ff2807e_1.png",
+    detailImage: "/images/04-62f11fa14e9a1f5d0ff2807e_1.png",
     detailImageAlt: "Close-up of polymeric dock decking material",
   },
   {
     title: "Option Two — Cedar Decking",
     description:
       "Beautiful natural cedar decking in 4' x 8' sections. Cedar offers a classic look and natural resistance to decay.",
-    image: "https://cdn.prod.website-files.com/62f11fa14e9a1f17e8f28013/62f11fa14e9a1f0735f2807f_option%20two.png",
+    image: "/images/00-62f11fa14e9a1f0735f2807f_option-two.png",
     imageAlt: "Option Two cedar decking for Karni-Pier dock",
-    detailImage: "https://cdn.prod.website-files.com/62f11fa14e9a1f17e8f28013/62f11fa14e9a1f3575f28080_2.png",
+    detailImage: "/images/03-62f11fa14e9a1f3575f28080_2.png",
     detailImageAlt: "Close-up of cedar dock decking material",
   },
   {
     title: "Option Three — Treated Wood Decking",
     description:
       "Pressure-treated wood in 4' x 8' sections. An economical option that provides reliable durability.",
-    image: "https://cdn.prod.website-files.com/62f11fa14e9a1f17e8f28013/62f11fa14e9a1f5d3df28084_option%20three.png",
+    image: "/images/05-62f11fa14e9a1f5d3df28084_option-three.png",
     imageAlt: "Option Three treated wood decking for Karni-Pier dock",
-    detailImage: "https://cdn.prod.website-files.com/62f11fa14e9a1f17e8f28013/62f11fa14e9a1fc11df28085_3.png",
+    detailImage: "/images/08-62f11fa14e9a1fc11df28085_3.png",
     detailImageAlt: "Close-up of treated wood dock decking material",
   },
   {
     title: "Option Four — Premium Composite",
     description:
       "Premium composite decking for superior performance and aesthetics. A modern, low-maintenance choice.",
-    image: "https://cdn.prod.website-files.com/62f11fa14e9a1f17e8f28013/62f11fa14e9a1f3166f28087_option%20four.png",
+    image: "/images/02-62f11fa14e9a1f3166f28087_option-four.png",
     imageAlt: "Option Four premium composite decking for Karni-Pier dock",
-    detailImage: "https://cdn.prod.website-files.com/62f11fa14e9a1f17e8f28013/62f11fa14e9a1f829cf28086_4.png",
+    detailImage: "/images/06-62f11fa14e9a1f829cf28086_4.png",
     detailImageAlt: "Close-up of premium composite dock decking material",
   },
 ];
@@ -123,7 +123,7 @@ export default function DesignsPage() {
             </div>
             <div>
               <Image
-                src="https://cdn.prod.website-files.com/62f11fa14e9a1f17e8f28013/62f11fa14e9a1ffcecf28088_ramps.png"
+                src="/images/09-62f11fa14e9a1ffcecf28088_ramps.png"
                 alt="Dock ramp designs and configurations"
                 width={600}
                 height={400}
