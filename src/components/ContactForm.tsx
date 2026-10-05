@@ -11,7 +11,9 @@ export default function ContactForm() {
     loadTimeRef.current = Date.now();
   }, []);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  const [submitting, setSubmitting] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
 
@@ -34,7 +36,9 @@ export default function ContactForm() {
 
     // Basic client-side validation
     const name = (formData.get("name") as string)?.trim();
+    const phone = (formData.get("phone") as string)?.trim();
     const email = (formData.get("email") as string)?.trim();
+    const address = (formData.get("address") as string)?.trim();
     const message = (formData.get("message") as string)?.trim();
 
     if (!name || !email || !message) {
@@ -50,7 +54,20 @@ export default function ContactForm() {
       return;
     }
 
-    setSubmitted(true);
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/dockperz@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ name, phone, email, address, message, _subject: "New quote request — Piers 2U website" }),
+      });
+      if (!res.ok) throw new Error("send failed");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong sending your message. Please call us at (920) 231-0841 instead.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -169,9 +186,10 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="w-full sm:w-auto bg-lake text-white font-semibold px-8 py-3 rounded-lg hover:bg-lake-dark transition-colors"
+        disabled={submitting}
+        className="w-full sm:w-auto bg-lake text-white font-semibold px-8 py-3 rounded-lg hover:bg-lake-dark transition-colors disabled:opacity-60"
       >
-        Send Message
+        {submitting ? "Sending…" : "Send Message"}
       </button>
       <p className="text-sm text-gray-500">
         We&apos;ll get back to you within 24 hours during the season (March&ndash;November).
