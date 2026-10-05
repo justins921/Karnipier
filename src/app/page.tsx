@@ -121,8 +121,17 @@ export default function HomePage() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-navy-950 text-white">
-        <div className="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-lake-dark opacity-90" />
+      <section className="relative bg-navy-950 text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/21-62f11fa14e9a1f59eef28041_in-out-docks-10-21-13-001.jpeg"
+            alt="Custom dock installed by Piers 2U extending into a Wisconsin lake at sunset"
+            fill
+            priority
+            className="object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-navy-950/95 via-navy-900/80 to-lake-dark/60" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
           <div className="max-w-3xl">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-balance">
