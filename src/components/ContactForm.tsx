@@ -59,7 +59,7 @@ export default function ContactForm() {
       const res = await fetch("https://formsubmit.co/ajax/dockperz@gmail.com", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ name, phone, email, address, message, _subject: "New quote request — Piers 2U website" }),
+        body: JSON.stringify({ name, phone, email, address, message, _subject: `New quote request — ${window.location.hostname.replace(/^www\./, "")}` }),
       });
       if (!res.ok) throw new Error("send failed");
       setSubmitted(true);
