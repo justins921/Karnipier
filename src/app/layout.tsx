@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   description:
     "Karni-Pier LLC dba Piers 2U builds custom stationary docks, floating docks, roll-in dock systems, and boat lifts in Wisconsin. Family owned since the 1950s. Get a free quote today.",
-  metadataBase: new URL("https://www.pierstoyou.com"),
+  metadataBase: new URL("https://karnipier.com"),
   openGraph: {
     type: "website",
     locale: "en_US",

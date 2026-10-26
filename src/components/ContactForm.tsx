@@ -59,7 +59,7 @@ export default function ContactForm() {
       const res = await fetch("https://formsubmit.co/ajax/dockperz@gmail.com", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ name, phone, email, address, message, _subject: `New quote request — ${window.location.hostname.replace(/^www\./, "")}` }),
+        body: JSON.stringify({ name, phone, email, address, message, _subject: `New quote request — ${window.location.hostname.replace(/^www\./, "")}`, _blacklist: "bitcoin, cryptocurrency, crypto investment, online casino, viagra, cialis, seo services, link building, guest post, backlinks, payday loan, forex trading, binary options, make money online, escort services, porn, t.me/, telegram investment, work-from-home opportunity" }),
       });
       if (!res.ok) throw new Error("send failed");
       setSubmitted(true);
